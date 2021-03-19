@@ -1,7 +1,6 @@
 package pl.skorupska.recruitmenttask.domain;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Supervisor {
@@ -14,19 +13,14 @@ public class Supervisor {
     private String lastName;
     private String stand;
 
-    public Supervisor(String firstName, String lastName, String stand, List<User> user) {
+    public Supervisor(String firstName, String lastName, String stand) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.stand = stand;
-        this.user = user;
     }
 
     public Supervisor() {
     }
-
-    @OneToMany(mappedBy = "supervisor")
-    private List<User> user;
-
 
     public Long getId() {
         return id;
@@ -58,13 +52,5 @@ public class Supervisor {
 
     public void setStand(String stand) {
         this.stand = stand;
-    }
-
-    public List<User> getUser() {
-        return user;
-    }
-
-    public void setUser(List<User> user) {
-        this.user = user;
     }
 }

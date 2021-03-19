@@ -1,5 +1,10 @@
 package pl.skorupska.recruitmenttask.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import javax.persistence.*;
 
 @Entity
@@ -24,7 +29,7 @@ public class User {
     public User() {
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "SUPERVISOR")
     private Supervisor supervisor;
 
